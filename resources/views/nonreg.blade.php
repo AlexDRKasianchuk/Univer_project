@@ -47,6 +47,7 @@
         .btn {
             font-size: 150%;
             margin: 10px;
+            border-radius:12px;
         }
 
         .pln {
@@ -79,9 +80,9 @@
                                 <h5 class="fs-2 text-wrap">Для користування сервісом необхідно авторизуватися</h5>
                                 <div class="btn">
                                     <a href="/login"><button type="button"
-                                            class="btn btn-outline-light">Увійти</button></a>
+                                            class="btn btn-secondary">Увійти</button></a>
                                     <a href="/register"><button type="button"
-                                            class="btn btn-outline-light">Реєстрація</button></a>
+                                            class="btn btn-secondary">Реєстрація</button></a>
                                 </div>
                             </div>
                             <div>
