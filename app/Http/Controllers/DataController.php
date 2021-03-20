@@ -13,7 +13,7 @@ class DataController extends Controller
 
 //add data from DB
     public function Submit(DataRequest $req){
-
+        $validated = $req->validated();
         $data = new Data;
         $data->user_id = $req->user()->id;
         $data->variant = $req->variant;
@@ -71,7 +71,7 @@ class DataController extends Controller
 
         $data-> save();
 
-        return redirect()->route('last');
+        return redirect()->route('last')->with('success','Запис успішно створенно');
     }
 
 //History
@@ -94,7 +94,7 @@ class DataController extends Controller
 //delete data from history
     public function Delete($id){
         Data::find($id)->delete();
-        return redirect()->route('history');
+        return redirect()->route('history')->with('success','Запис успішно видаленно');
     }
 
     public function SelectData($id){
@@ -174,11 +174,7 @@ class DataController extends Controller
     }
 
 /* 
-
-
     Створення файлів
-
-
 */
 //Input data File
     private function createDataFile($datas){
@@ -309,12 +305,9 @@ class DataController extends Controller
             
             Storage::disk('public')->append('Vidpovidi.txt',$str);
         }
+
 /* 
-
-
     Математичні функції для створення вибірки 
-
-
 */
     private function stats_rand_gen_normal($min,$max, $sd=1) :int {
       

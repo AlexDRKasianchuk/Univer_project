@@ -12,7 +12,18 @@
 </head>
 
 <body>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+@error('title')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
     <div>
         @if (Route::has('login'))
         <div>
@@ -40,11 +51,11 @@
                     
                     <div>
                         <label for="variant" >Кількість варіантів</label>
-                        <input type="number"  id="variant" name="variant" value="1" min="1">
+                        <input type="number"  id="variant" name="variant" value="1">
                     </div>
                     <div>
                         <label for="amountOfData" >Об'єм вибірки</label>
-                        <input type="number"" id="amountOfData" name="amountOfData" value="20" min="2">
+                        <input type="number"" id="amountOfData" name="amountOfData" value="20">
                     </div>
                     <div >
                         <label for="min" >Ліва межа</label>

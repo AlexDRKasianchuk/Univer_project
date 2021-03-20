@@ -43,6 +43,11 @@
         </div>
         @endif
         <div>
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{session('success')}}
+        </div>
+@endif
         <?php 
             if(count($datas)==0) echo 'Error';
         ?>
