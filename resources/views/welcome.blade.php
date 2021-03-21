@@ -68,7 +68,7 @@
         }
 
         .dropbtn {
-            color: white;
+            color: gray;
             cursor: pointer;
         }
 
@@ -102,7 +102,7 @@
         }
 
         .drop:hover .dropbtn {
-            color: grey;
+            color: white;
         }
 
         .pd {

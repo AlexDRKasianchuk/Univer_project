@@ -20,6 +20,8 @@
         }
 
         body {
+
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             background: rgb(0, 0, 0);
             background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(139, 43, 48, 1) 100%);
         }
@@ -35,7 +37,8 @@
             background-color: #262626;
             color: white;
             text-align: center;
-            font-family: monospace;
+            
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             padding: 50px 50px;
             border-radius: 10px;
             -webkit-box-shadow: 0px 0px 30px -5px rgba(255, 255, 255, 1);

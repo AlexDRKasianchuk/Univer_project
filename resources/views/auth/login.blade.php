@@ -20,6 +20,8 @@
         }
 
         body {
+
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             background: rgb(0, 0, 0);
             background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(139, 43, 48, 1) 100%);
         }
@@ -34,7 +36,8 @@
             background-color: #262626;
             color: white;
             text-align: center;
-            font-family: monospace;
+            
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             padding: 50px 50px;
             border-radius: 10px;
             -webkit-box-shadow: 0px 0px 30px -5px rgba(255, 255, 255, 1);
@@ -80,9 +83,9 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <label for="email" class="visually-hidden">{{ __('Email') }}</label>
-                <input  class="w-100 pad hei" id="email" type="email" name="email" :value="old('email')" required autofocus />
+                <input  class="w-100 pad hei" id="email" type="email" name="email" :value="old('email')" required autofocus placeholder="{{ __('Email') }}"/>
                 <label for="password" class="visually-hidden">{{ __('Password') }}</label>
-                <input class="w-100 pad hei" id="password" type="password" name="password" required autocomplete="current-password" />
+                <input class="w-100 pad hei" id="password" type="password" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}"/>
                 <div class="checkbox mb-3 sb">
                     <label for="remember_me">
                         <x-jet-checkbox id="remember_me" name="remember" />

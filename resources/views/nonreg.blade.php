@@ -24,7 +24,8 @@
         }
 
         h1 {
-            font-family: monospace;
+            
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
 
         .reg {
@@ -32,7 +33,8 @@
             color: white;
             padding: 2%;
             text-align: center;
-            font-family: monospace;
+            
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             border-radius: 40px;
             -webkit-box-shadow: 0px 0px 30px -5px rgba(255, 255, 255, 1);
             -moz-box-shadow: 0px 0px 30px -5px rgba(255, 255, 255, 1);
