@@ -1,10 +1,16 @@
 <x-jet-action-section>
     <x-slot name="title">
-        {{ __('Browser Sessions') }}
+    <span style="color:white;">
+    {{ __('Browser Sessions') }}
+                </span>
+       
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Manage and log out your active sessions on other browsers and devices.') }}
+    <span style="color:white;">
+    {{ __('Manage and log out your active sessions on other browsers and devices.') }}
+                </span>
+        
     </x-slot>
 
     <x-slot name="content">
