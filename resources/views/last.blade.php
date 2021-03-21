@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Download</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -175,7 +175,27 @@
         .cor {
             height: calc(100vh-79px);
         }
+        .anime {
+            animation:anim 25s linear;
+            animation-duration:10s;
+            position: absolute;
+            top:-100px;
+            animation-play-state: play;
+            }
+ 
+@keyframes anim {
+    0%{
+        top:-100px;
+    }
+    50%{
 
+        top: 100px;
+    }
+    100%{
+        top:-100%;
+        
+    }
+}
     </style>
 </head>
 <body>
@@ -186,7 +206,7 @@
 
                 <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Eighth navbar example">
                     <div class="container">
-                        <a class="navbar-brand" href="{{ url('/home') }}"><img src="img/gerb.png" alt="gerbLogo"
+                        <a class="navbar-brand" href="{{ url('/home') }}"><img src="../img/gerb.png" alt="gerbLogo"
                                 style='width: 50px;'></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="true"
@@ -226,7 +246,7 @@
             </div>
         </header>
 @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success anime">
             {{session('success')}}
         </div>
 @endif
@@ -245,7 +265,7 @@
 
                         <div class="d-flex align-items-center">
                             <div style='padding-right: 25px;'>
-                                <img src="img/gerb.png" alt="gerb VNU" style="width:50px;">
+                                <img src="../img/gerb.png" alt="gerb VNU" style="width:50px;">
                             </div>
                             <div>
                                 <h5>Волинський Національний університет імені Лесі Українки</h5>

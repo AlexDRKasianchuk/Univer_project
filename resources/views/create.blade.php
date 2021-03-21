@@ -223,7 +223,7 @@
             </div>
         </header>
 @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="alert alert-danger anime">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -232,7 +232,7 @@
     </div>
 @endif
 @error('title')
-    <div class="alert alert-danger">{{ $message }}</div>
+    <div class="alert alert-danger anime">{{ $message }}</div>
 @enderror
 
     <div class="content">

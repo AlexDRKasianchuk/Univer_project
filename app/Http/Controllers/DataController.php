@@ -261,8 +261,8 @@ class DataController extends Controller
                     if($data->upperQuartile) $str = $str.++$j.") Знайти верхній квартиль\r\n";        
                     if($data->levelQuantileP) $str = $str.++$j.") Знайти квантиль рівня ".$data->levelP."\r\n";        
                     if($data->confidenceIntervalWithGammaReliability) $str = $str.++$j.") Знайти довірчий інтервал з надійністю  gamma\r\n";        
-                    if($data->histogram) $$str = $str.++$j."Побудувати гістограму\r\n";        
-                    if($data->cumulata) $str = $str.++$j."Побудувати камуляту\r\n";
+                    if($data->histogram) $str = $str.++$j.") Побудувати гістограму\r\n";        
+                    if($data->cumulata) $str = $str.++$j.") Побудувати камуляту\r\n";
                     $str = $str."\n";
             
             }
