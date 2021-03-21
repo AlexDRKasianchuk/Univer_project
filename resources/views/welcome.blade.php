@@ -130,7 +130,7 @@
 </head>
 
 <body>
-    <!-- <header>
+    <header>
         @if (Route::has('login'))
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
@@ -171,8 +171,8 @@
             </div>
         </nav>
         @endif
-    </header> -->
-    <!-- @include('include.header') -->
+    </header>
+   
     
     <div class="container">
         <div class="row align-items-center pd">
