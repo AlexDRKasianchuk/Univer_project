@@ -205,7 +205,7 @@
                                     <a class="nav-link" aria-current="page" href="{{ url('/home') }}">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link  active" href="{{ url('/create') }}">Create</a>
+                                    <a class="nav-link" href="{{ url('/create') }}">Create</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url('/history') }}">History</a>
