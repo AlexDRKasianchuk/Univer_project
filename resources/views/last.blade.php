@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download</title>
+    <title>{{__('public.download')}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -217,24 +217,24 @@
                         <div class="navbar-collapse collapse show" id="navbarsExample07">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">{{__('public.home')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/create') }}">Create</a>
+                                    <a class="nav-link" href="{{ url('/create') }}">{{__('public.create')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/history') }}">History</a>
+                                    <a class="nav-link" href="{{ url('/history') }}">{{__('public.history')}}</a>
                                 </li>
                             </ul>
 
                             <div class="drop">
                                 <span class="dropbtn">{{ Auth::user()->name }}</span>
                                 <div class="drop-content">
-                                    <a href="{{ route('profile.show') }}">Profile</a>
+                                    <a href="{{ route('profile.show') }}">{{__('public.profile')}}</a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); this.closest('form').submit();">Log Out</a>
+                                            onclick="event.preventDefault(); this.closest('form').submit();">{{__('public.logout')}}</a>
                                     </form>
                                 </div>
                             </div>
@@ -252,9 +252,9 @@
 @endif
 <div class="content">
             <div class="section">
-    <a href="{{route('download-variant',$id)}}"><button class="btn btn-danger">Download variant</button></a>
-    <a href="{{route('download-vidpovidi',$id)}}"><button class="btn btn-danger">Download vidpovidi</button></a>
-    <a href="{{route('download-data',$id)}}"><button class="btn btn-danger">Download data</button></a>
+    <a href="{{route('download-variant',$id)}}"><button class="btn btn-danger">{{__('public.variant')}}</button></a>
+    <a href="{{route('download-vidpovidi',$id)}}"><button class="btn btn-danger">{{__('public.vidpovidi')}}</button></a>
+    <a href="{{route('download-data',$id)}}"><button class="btn btn-danger">{{__('public.data')}}</button></a>
     </div>
     </div>
 
@@ -268,7 +268,7 @@
                                 <img src="../img/gerb.png" alt="gerb VNU" style="width:50px;">
                             </div>
                             <div>
-                                <h5>Волинський Національний університет імені Лесі Українки</h5>
+                                <h5>{{__('public.nameOfUniversity')}}</h5>
                             </div>
 
                         </div>

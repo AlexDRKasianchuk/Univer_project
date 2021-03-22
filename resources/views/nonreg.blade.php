@@ -10,7 +10,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>{{__('public.welcome')}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <style>
@@ -74,17 +74,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col align-self-center">
-                            <p class="display-4 text-light text-uppercase text-start align-middle">Генератор
-                                рівнозначних варіантів задач для статистичного аналізу даних</p>
+                            <p class="display-4 text-light text-uppercase text-start align-middle">{{__('public.text2')}}</p>
                         </div>
                         <div class="col reg">
                             <div class="pln">
-                                <h5 class="fs-2 text-wrap">Для користування сервісом необхідно авторизуватися</h5>
+                                <h5 class="fs-2 text-wrap">{{__('public.text1')}}</h5>
                                 <div class="btn">
                                     <a href="/login"><button type="button"
-                                            class="btn btn-secondary">Увійти</button></a>
+                                            class="btn btn-secondary">{{__('public.login')}}</button></a>
                                     <a href="/register"><button type="button"
-                                            class="btn btn-secondary">Реєстрація</button></a>
+                                            class="btn btn-secondary">{{__('public.registration')}}</button></a>
                                 </div>
                             </div>
                             <div>

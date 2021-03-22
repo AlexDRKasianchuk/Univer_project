@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>{{__('public.home')}}</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -193,24 +193,24 @@
                         <div class="navbar-collapse collapse show" id="navbarsExample07">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">{{__('public.home')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/create') }}">Create</a>
+                                    <a class="nav-link" href="{{ url('/create') }}">{{__('public.create') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/history') }}">History</a>
+                                    <a class="nav-link" href="{{ url('/history') }}">{{__('public.history')}}</a>
                                 </li>
                             </ul>
 
                             <div class="drop">
                                 <span class="dropbtn">{{ Auth::user()->name }}</span>
                                 <div class="drop-content">
-                                    <a href="{{ route('profile.show') }}">Profile</a>
+                                    <a href="{{ route('profile.show') }}">{{__('public.profile')}}</a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); this.closest('form').submit();">Log Out</a>
+                                            onclick="event.preventDefault(); this.closest('form').submit();">{{__('public.logout')}}</a>
                                     </form>
                                 </div>
                             </div>
@@ -235,15 +235,13 @@
                                         <div class="container">
                                             <div class="row ">
                                                 <div class="col text-center text-white">
-                                                    <h3 class="fs-1">Генератор рівнозначних варіантів задач для
-                                                        статистичного
-                                                        аналізу даних</h3>
-                                                    <p class="fs-4">Інструкція користування</p>
+                                                    <h3 class="fs-1">{{__('public.home_txt1')}}</h3>
+                                                    <p class="fs-4">{{__('public.home_txt2')}}</p>
                                                 </div>
                                                 <div class="container">
                                                     <div class="row align-items-center text-light">
                                                         <div class="col text-center" id="block">
-                                                            <h2>Як створити завдання?</h2>
+                                                            <h2>{{__('public.home_txt3')}}</h2>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                                                 Earum
                                                                 repellat at repellendus magnam aperiam ad quos, amet
@@ -263,7 +261,7 @@
                                                             </p>
                                                         </div>
                                                         <div class="col text-center" id="block">
-                                                            <h2>Як скачати?</h2>
+                                                            <h2>{{__('public.home_txt4')}}</h2>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                                                 Eligendi
                                                                 magnam voluptates, pariatur, impedit, rem distinctio
@@ -284,7 +282,7 @@
                                                             </p>
                                                         </div>
                                                         <div class="col text-center " id="block">
-                                                            <h2>Редагування сторінки</h2>
+                                                            <h2>{{__('public.home_txt5')}}</h2>
                                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                                                 Dolor
                                                                 minus
@@ -327,7 +325,7 @@
                                 <img src="img/gerb.png" alt="gerb VNU" style="width:50px;">
                             </div>
                             <div>
-                                <h5>Волинський Національний університет імені Лесі Українки</h5>
+                                <h5>{{__('public.nameOfUniversity')}}</h5>
                             </div>
 
                         </div>

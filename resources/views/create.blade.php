@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Create</title>
+    <title>{{__('public.create')}}</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -194,24 +194,24 @@
                         <div class="navbar-collapse collapse show" id="navbarsExample07">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="{{ url('/home') }}">Home</a>
+                                    <a class="nav-link" aria-current="page" href="{{ url('/home') }}">{{__('public.home') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link  active" href="{{ url('/create') }}">Create</a>
+                                    <a class="nav-link  active" href="{{ url('/create') }}">{{__('public.create')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/history') }}">History</a>
+                                    <a class="nav-link" href="{{ url('/history') }}">{{__('public.history') }}</a>
                                 </li>
                             </ul>
 
                             <div class="drop">
                                 <span class="dropbtn">{{ Auth::user()->name }}</span>
                                 <div class="drop-content">
-                                    <a href="{{ route('profile.show') }}">Profile</a>
+                                    <a href="{{ route('profile.show') }}">{{__('public.profile')}}</a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); this.closest('form').submit();">Log Out</a>
+                                            onclick="event.preventDefault(); this.closest('form').submit();">{{__('public.logout')}}</a>
                                     </form>
                                 </div>
                             </div>
@@ -240,32 +240,32 @@
         <div class="container">
             <br>
             <div>
-                <h5>Create new Data</h5>
+                <h5>{{__('public.createNew')}}</h5>
                 <form action="" method="post">
                     @csrf
                     
                     <div>
-                        <label for="variant" >Кількість варіантів</label>
+                        <label for="variant" >{{__('public.variant')}}</label>
                         <input type="number"  id="variant" name="variant" value="1">
                     </div>
                     <div>
-                        <label for="amountOfData" >Об'єм вибірки</label>
+                        <label for="amountOfData" >{{__('public.amountOfData')}}</label>
                         <input type="number"" id="amountOfData" name="amountOfData" value="20">
                     </div>
                     <div >
-                        <label for="min" >Ліва межа</label>
+                        <label for="min" >{{__('public.min')}}</label>
                         <input type="number" id="min" name="min" value="0">
                     </div>
                     <div >
-                        <label for="max" >Права межа</label>
+                        <label for="max" >{{__('public.max')}}</label>
                         <input type="number"  id="max" name="max" value="20">
                     </div>
                     <div >
-                        <label for="intOrReal" >Дані цілі/дійсні</label>
+                        <label for="intOrReal" >{{__('public.intOrReal')}}</label>
                         <input type="checkbox"  id="intOrReal" name="intOrReal" >
                     </div>
                     <div >
-                        <label for="normalDistribution" >Розподіл рівномірний / нормальний</label>
+                        <label for="normalDistribution" >{{__('public.normalDistribution')}}</label>
                         <input type="checkbox"  id="normalDistribution" name="normalDistribution" >
                         <input type="number"  name="stdDeviation"value="1">(стандартне відхилення якщо нормальний розподіл)
                     </div>
@@ -273,67 +273,67 @@
                     <hr>
 
                     <div>
-                        <label for="frequencies" >Частоти</label>
+                        <label for="frequencies" >{{__('public.frequencies')}}</label>
                         <input type="checkbox"  id="frequencies" name="frequencies" checked>
                     </div>
                     <div >
-                        <label for="relativeFrequencies" >Відносні частоти</label>
+                        <label for="relativeFrequencies" >{{__('public.relativeFrequencies')}}</label>
                         <input type="checkbox"  id="relativeFrequencies" name="relativeFrequencies" >
                     </div>
                     <div >
-                        <label for="average" >Середнє</label>
+                        <label for="average" >{{__('public.average')}}</label>
                         <input type="checkbox"  id="average" name="average" checked>
                     </div>
                     <div >
-                        <label for="fashion" >Мода</label>
+                        <label for="fashion" >{{__('public.fashion')}}</label>
                         <input type="checkbox"  id="fashion" name="fashion" >
                     </div>
                     <div >
-                        <label for="median" >Медіана</label>
+                        <label for="median" >{{__('public.median')}}</label>
                         <input type="checkbox"  id="median" name="median" >
                     </div>
                     <div>
-                        <label for="dispersion" >Дисперсія</label>
+                        <label for="dispersion" >{{__('public.dispersion')}}</label>
                         <input type="checkbox" id="dispersion" name="dispersion" checked>
                     </div>
                     <div >
-                        <label for="standardDeviation" >Стандартне відхилення</label>
+                        <label for="standardDeviation" >{{__('public.standardDeviation')}}</label>
                         <input type="checkbox"  id="standardDeviation" name="standardDeviation" >
                     </div>
                     <div>
-                        <label for="coefficientOfVariation" >Коефіцієнт варіації</label>
+                        <label for="coefficientOfVariation" >{{__('public.coefficientOfVariation')}}</label>
                         <input type="checkbox"  id="coefficientOfVariation" name="coefficientOfVariation" >
                     </div>
                     <div >
-                        <label for="decileCoefficient">Децильний коефіцієнт </label>
+                        <label for="coefficientOfVariation">{{__('public.decileCoefficient')}}</label>
                         <input type="checkbox" id="decileCoefficient" name="decileCoefficient" >
                     </div>
                     <div>
-                        <label for="lowerQuartile" >Нижній квартиль</label>
+                        <label for="lowerQuartile" >{{__('public.lowerQuartile')}}</label>
                         <input type="checkbox"  id="lowerQuartile" name="lowerQuartile" checked>
                     </div>
                     <div >
-                        <label for="upperQuartile" >Верхній квартиль</label>
+                        <label for="upperQuartile" >{{__('public.upperQuartile')}}</label>
                         <input type="checkbox"  id="upperQuartile" name="upperQuartile" checked>
                     </div>
                     <div >
-                        <label for="levelQuantileP" >Квантиль рівня p</label>
+                        <label for="levelQuantileP" >{{__('public.levelQuantileP')}}</label>
                         <input type="checkbox"  id="levelQuantileP" name="levelQuantileP" >
                         <input type="number" id="levelQuantileP" name="levelP"value="1">(P= якщо true)
                     </div>
                     <div >
-                        <label for="confidenceIntervalWithGammaReliability" >Довірчий інтервал з надійністю  gamma</label>
+                        <label for="confidenceIntervalWithGammaReliability" >{{__('public.confidenceIntervalWithGammaReliability')}}</label>
                         <input type="checkbox"  id="confidenceIntervalWithGammaReliability" name="confidenceIntervalWithGammaReliability" >
                     </div>
                     <div >
-                        <label for="histogram" >Гістограма</label>
+                        <label for="histogram" >{{__('public.histogram')}}</label>
                         <input type="checkbox"  id="histogram" name="histogram" checked>
                     </div>
                     <div >
-                        <label for="cumulata" >Кумулята</label>
+                        <label for="cumulata" >{{__('public.cumulata')}}</label>
                         <input type="checkbox"  id="cumulata" name="cumulata" >
                     </div>
-                    <button type="submit" class="btn btn-success">Send</button>
+                    <button type="submit" class="btn btn-success">{{__('public.send')}}</button>
 
                 </form>
             </div>
@@ -351,7 +351,7 @@
                                 <img src="img/gerb.png" alt="gerb VNU" style="width:50px;">
                             </div>
                             <div>
-                                <h5>Волинський Національний університет імені Лесі Українки</h5>
+                                <h5>{{__('public.nameOfUniversity')}}</h5>
                             </div>
 
                         </div>

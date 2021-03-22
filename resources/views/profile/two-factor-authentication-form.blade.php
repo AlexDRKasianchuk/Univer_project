@@ -1,14 +1,14 @@
 <x-jet-action-section>
     <x-slot name="title">
     <span style="color:white;">
-    {{ __('Two Factor Authentication') }}
+    {{ __('public.tfa') }}
                 </span>  
     
     </x-slot>
 
     <x-slot name="description">
     <span style="color:white;">
-    {{ __('Add additional security to your account using two factor authentication.') }}
+    {{ __('public.profile_text1') }}
                 </span> 
         
     </x-slot>
@@ -16,15 +16,15 @@
     <x-slot name="content">
         <h3 class="text-lg font-medium text-gray-900">
             @if ($this->enabled)
-                {{ __('You have enabled two factor authentication.') }}
+                {{ __('public.profile_text2') }}
             @else
-                {{ __('You have not enabled two factor authentication.') }}
+                {{ __('public.profile_text3') }}
             @endif
         </h3>
 
         <div class="mt-3 max-w-xl text-sm text-gray-600">
             <p>
-                {{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.') }}
+                {{ __('public.profile_text4') }}
             </p>
         </div>
 
@@ -32,7 +32,7 @@
             @if ($showingQrCode)
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
-                        {{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application.') }}
+                        {{ __('public.profile_text5') }}
                     </p>
                 </div>
 
@@ -44,7 +44,7 @@
             @if ($showingRecoveryCodes)
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
-                        {{ __('Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.') }}
+                        {{ __('public.profile_text6') }}
                     </p>
                 </div>
 
@@ -60,27 +60,27 @@
             @if (! $this->enabled)
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
                     <x-jet-button type="button" wire:loading.attr="disabled">
-                        {{ __('Enable') }}
+                        {{ __('public.profile_enable') }}
                     </x-jet-button>
                 </x-jet-confirms-password>
             @else
                 @if ($showingRecoveryCodes)
                     <x-jet-confirms-password wire:then="regenerateRecoveryCodes">
                         <x-jet-secondary-button class="mr-3">
-                            {{ __('Regenerate Recovery Codes') }}
+                            {{ __('public.profile_RRC') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @else
                     <x-jet-confirms-password wire:then="showRecoveryCodes">
                         <x-jet-secondary-button class="mr-3">
-                            {{ __('Show Recovery Codes') }}
+                            {{ __('public.profile_SRC') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @endif
 
                 <x-jet-confirms-password wire:then="disableTwoFactorAuthentication">
                     <x-jet-danger-button wire:loading.attr="disabled">
-                        {{ __('Disable') }}
+                        {{ __('public.profile_disable') }}
                     </x-jet-danger-button>
                 </x-jet-confirms-password>
             @endif

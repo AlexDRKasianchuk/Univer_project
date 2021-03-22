@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>{{__('public.login_page')}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
@@ -82,24 +82,24 @@
         <main class="form-signin position-absolute start-50 translate-middle">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <label for="email" class="visually-hidden">{{ __('Email') }}</label>
+                <label for="email" class="visually-hidden">{{ __('public.login_Email') }}</label>
                 <input  class="w-100 pad hei" id="email" type="email" name="email" :value="old('email')" required autofocus placeholder="{{ __('Email') }}"/>
-                <label for="password" class="visually-hidden">{{ __('Password') }}</label>
+                <label for="password" class="visually-hidden">{{ __('public.login_Pass') }}</label>
                 <input class="w-100 pad hei" id="password" type="password" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}"/>
                 <div class="checkbox mb-3 sb">
                     <label for="remember_me">
                         <x-jet-checkbox id="remember_me" name="remember" />
-                        <span>{{ __('Remember me') }}</span>
+                        <span>{{ __('public.login_RM') }}</span>
                     </label>
                     @if (Route::has('password.request'))
                     <a class="underline tc text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                        {{ __('public.login_forgot') }}
                     </a>
 
                 @endif
                 </div>
                 
-                <button class="w-100 btn btn-secondary">{{ __('Log in') }}</button>
+                <button class="w-100 btn btn-secondary">{{ __('public.login_login') }}</button>
             </form>
         </main>
     </x-jet-authentication-card>

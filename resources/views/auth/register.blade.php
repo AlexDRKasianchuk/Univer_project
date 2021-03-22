@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>{{__('public.reg_page')}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
@@ -84,20 +84,20 @@
         <main class="form-signin position-absolute start-50 translate-middle">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-                    <label for="name" class="visually-hidden">{{ __('Name') }}</label>
+                    <label for="name" class="visually-hidden">{{ __('public.reg_name') }}</label>
                     <input id="name" class="w-100 pad hei" type="text" name="name" :value="old('name')"
-                        required autofocus autocomplete="name" placeholder="{{ __('Name') }}"/>
-                    <label for="email" class="visually-hidden">{{ __('Email') }}</label>
+                        required autofocus autocomplete="name" placeholder="{{ __('public.reg_name') }}"/>
+                    <label for="email" class="visually-hidden">{{ __('public.login_Email') }}</label>
                     <input id="email" class="w-100 pad hei" type="email" name="email" :value="old('email')"
-                        required placeholder="{{ __('Email') }}"/>
+                        required placeholder="{{ __('public.login_Email') }}"/>
 
-                    <label for="password" class="visually-hidden">{{ __('Password') }}</label>
+                    <label for="password" class="visually-hidden">{{ __('public.login_Pass') }}</label>
                     <input id="password" class="w-100 pad hei" type="password" name="password" required
-                        autocomplete="new-password" placeholder="{{ __('Password') }}"/>
+                        autocomplete="new-password" placeholder="{{ __('public.login_Pass') }}"/>
 
-                    <label for="password_confirmation" class="visually-hidden">{{ __('Confirm Password') }}</label>
+                    <label for="password_confirmation" class="visually-hidden">{{ __('public.profile_Conf') }}</label>
                     <input id="password_confirmation" class="w-100 pad hei" type="password"
-                        name="password_confirmation" required autocomplete="new-password" placeholder="{{ __('Confirm Password') }}"/>
+                        name="password_confirmation" required autocomplete="new-password" placeholder="{{ __('public.profile_Conf') }}"/>
 
                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
@@ -121,13 +121,13 @@
                 @endif
                 <div class="pad-1">
                     <a class="underline tc  text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                        {{ __('Already registered?') }}
+                        {{ __('public.reg_AR') }}
                     </a>
                 </div>
                     
 
                     <button class="w-100 btn btn-secondary">
-                        {{ __('Register') }}
+                        {{ __('public.reg_reg') }}
                     </button>
                 </div
             </form>

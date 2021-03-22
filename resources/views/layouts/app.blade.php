@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Profile</title>
+        <title>{{__('public.profile')}}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -202,24 +202,24 @@
                         <div class="navbar-collapse collapse show" id="navbarsExample07">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="{{ url('/home') }}">Home</a>
+                                    <a class="nav-link" aria-current="page" href="{{ url('/home') }}">{{__('public.home')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/create') }}">Create</a>
+                                    <a class="nav-link" href="{{ url('/create') }}">{{__('public.create')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('/history') }}">History</a>
+                                    <a class="nav-link" href="{{ url('/history') }}">{{__('public.history')}}</a>
                                 </li>
                             </ul>
 
                             <div class="drop">
                                 <span class="dropbtn">{{ Auth::user()->name }}</span>
                                 <div class="drop-content">
-                                    <a href="{{ route('profile.show') }}">Profile</a>
+                                    <a href="{{ route('profile.show') }}">{{__('public.profile')}}</a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault(); this.closest('form').submit();">Log Out</a>
+                                            onclick="event.preventDefault(); this.closest('form').submit();">{{__('public.logout')}}</a>
                                     </form>
                                 </div>
                             </div>
@@ -247,7 +247,7 @@
                                 <img src="../img/gerb.png" alt="gerb" style="width:50px;">
                             </div>
                             <div>
-                                <h5>Волинський Національний університет імені Лесі Українки</h5>
+                                <h5>{{__('public.nameOfUniversity')}}</h5>
                             </div>
 
                         </div>

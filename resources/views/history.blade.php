@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History</title>
+    <title>{{__('public.history')}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -266,25 +266,24 @@
                             <div class="navbar-collapse collapse show" id="navbarsExample07">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="{{ url('/home') }}">Home</a>
+                                        <a class="nav-link" aria-current="page" href="{{ url('/home') }}">{{__('public.home')}}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/create') }}">Create</a>
+                                        <a class="nav-link" href="{{ url('/create') }}">{{__('public.create') }}</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link  active" href="{{ url('/history') }}">History</a>
+                                        <a class="nav-link  active" href="{{ url('/history') }}">{{__('public.history')}}</a>
                                     </li>
                                 </ul>
 
                                 <div class="drop">
                                     <span class="dropbtn">{{ Auth::user()->name }}</span>
                                     <div class="drop-content">
-                                        <a href="{{ route('profile.show') }}">Profile</a>
+                                        <a href="{{ route('profile.show') }}">{{__('public.profile')}}</a>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <a href="{{ route('logout') }}"
-                                                onclick="event.preventDefault(); this.closest('form').submit();">Log
-                                                Out</a>
+                                                onclick="event.preventDefault(); this.closest('form').submit();">{{__('public.logout')}}</a>
                                         </form>
                                     </div>
                                 </div>
@@ -316,30 +315,30 @@
 
                                     <div class="d-flex flex-row justify-content-between">
                                         <div style="display: flex;align-items: center;">
-                                            Кількість варіантів: {{$data -> variant}}
+                                            {{__('public.variant')}}: {{$data -> variant}}
                                             ,
-                                            Об'єм вибірки: {{$data -> amountOfData}} ,
-                                            Ліва межа: {{$data -> min}} ,
-                                            Права межа: {{$data -> max}} ,
-                                            @if($data->intOrReal==true) дійсні,
-                                            @else цілі,
+                                            {{__('public.amountOfData')}}: {{$data -> amountOfData}} ,
+                                            {{__('public.min')}}: {{$data -> min}} ,
+                                            {{__('public.max')}}: {{$data -> max}} ,
+                                            @if($data->intOrReal==true){{__('public.dataReal')}},
+                                            @else {{__('public.dataInt')}},
                                             @endif
-                                            @if($data->normalDistribution==true) рівномірний
-                                            @else нормальний
+                                            @if($data->normalDistribution==true) {{__('public.uniform')}}
+                                            @else  {{__('public.normal')}}
                                             @endif
 
                                         </div>
                                         <div style="display: flex;align-items: center;">
-                                            (Натисніть, щоб розгорнути)
+                                        {{__('public.click')}}
                                         </div>
                                         <div class="d-flex flex-row">
                                             <div>
                                                 <a href="{{route('selectData',$data->id)}}"><button
-                                                        class="btn btn-info">Create</button></a>
+                                                        class="btn btn-info">{{__('public.create')}}</button></a>
                                             </div>
                                             <div>
                                                 <a href="{{route('delete',$data->id)}}"><button
-                                                        class="btn btn-danger">Delete</button></a>
+                                                        class="btn btn-danger">{{__('public.delete')}}</button></a>
                                             </div>
                                         </div>
                                         
@@ -348,22 +347,21 @@
 
                                 <section class="tab-content">
                                     <h3>Знайти: </h3>
-                                    @if($data -> frequencies) Частоти<br>@endif
-                                    @if($data -> relativeFrequencies) Відносні частоти <br>@endif
-                                    @if($data -> average)Середнє <br>@endif
-                                    @if($data -> fashion)Мода <br>@endif
-                                    @if($data -> median)Медіана <br>@endif
-                                    @if($data -> dispersion)Дисперсія <br>@endif
-                                    @if($data -> standardDeviation)Стандартне відхилення <br>@endif
-                                    @if($data -> coefficientOfVariation)Коефіцієнт варіації <br>@endif
-                                    @if($data -> decileCoefficient)Децильний коефіцієнт <br>@endif
-                                    @if($data -> lowerQuartile)Нижній квартиль <br>@endif
-                                    @if($data -> upperQuartile)Верхній квартиль <br>@endif
-                                    @if($data -> levelQuantileP )Квантиль рівня {{$data -> levelP}} <br>@endif
-                                    @if($data -> confidenceIntervalWithGammaReliability)Довірчий інтервал з надійністю
-                                    gamma<br>@endif
-                                    @if($data -> histogram)Гістограма <br>@endif
-                                    @if($data -> cumulata)Кумулята <br>@endif
+                                    @if($data -> frequencies) {{__('public.frequencies')}}<br>@endif
+                                    @if($data -> relativeFrequencies) {{__('public.relativeFrequencies')}} <br>@endif
+                                    @if($data -> average){{__('public.average')}} <br>@endif
+                                    @if($data -> fashion){{__('public.fashion')}} <br>@endif
+                                    @if($data -> median){{__('public.median')}} <br>@endif
+                                    @if($data -> dispersion){{__('public.dispersion')}} <br>@endif
+                                    @if($data -> standardDeviation){{__('public.standardDeviation')}}<br>@endif
+                                    @if($data -> coefficientOfVariation){{__('public.coefficientOfVariation')}} <br>@endif
+                                    @if($data -> decileCoefficient){{__('public.decileCoefficient')}} <br>@endif
+                                    @if($data -> lowerQuartile){{__('public.lowerQuartile')}}<br>@endif
+                                    @if($data -> upperQuartile){{__('public.upperQuartile')}}<br>@endif
+                                    @if($data -> levelQuantileP ){{__('public.levelP')}} {{$data -> levelP}} <br>@endif
+                                    @if($data -> confidenceIntervalWithGammaReliability){{__('public.confidenceIntervalWithGammaReliability')}}<br>@endif
+                                    @if($data -> histogram){{__('public.histogram')}} <br>@endif
+                                    @if($data -> cumulata){{__('public.cumulata')}} <br>@endif
                                 </section>
                             </div>
                         </div>
@@ -382,7 +380,7 @@
                                     <img src="img/gerb.png" alt="gerb VNU" style="width:50px;">
                                 </div>
                                 <div>
-                                    <h5>Волинський Національний університет імені Лесі Українки</h5>
+                                    <h5>{{__('public.nameOfUniversity')}}</h5>
                                 </div>
 
                             </div>
