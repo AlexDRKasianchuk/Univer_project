@@ -54,6 +54,7 @@
     'histogram'=>'Histogram',
     'cumulata'=>'Cumulata',
     'send'=>'Send',
+    'find'=>'Find',
     // 'createNew' => 'Create new Data',
     // 'variant' => 'Кількість варіантів',
     // 'amountOfData' => "Об'єм вибірки",

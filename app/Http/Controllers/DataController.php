@@ -7,6 +7,7 @@ use App\Http\Requests\DataRequest;
 use Illuminate\Http\Request;
 use App\Models\Data;
 use DB;
+use Illuminate\Support\Facades\App; 
 
 class DataController extends Controller
 {
@@ -70,8 +71,13 @@ class DataController extends Controller
         $data->sample = $this::create_sample($req);
 
         $data-> save();
-
-        return redirect()->route('last')->with('success','Запис успішно створенно');
+        if(App::getLocale()=="ua"){
+            return redirect()->route('last')->with('success','Запис успішно створенно');
+        }else{
+            return redirect()->route('last')->with('success','Create succesfully');
+        }
+      
+        
     }
 
 //History
@@ -94,8 +100,14 @@ class DataController extends Controller
 //delete data from history
     public function Delete($id){
         Data::find($id)->delete();
-        return redirect()->route('history')->with('success','Запис успішно видаленно');
+        if(App::getLocale()=="ua"){
+            return redirect()->route('history')->with('success','Запис успішно видаленно');
+            }
+            else{
+            return redirect()->route('history')->with('success','Delete succesfully');
+        }
     }
+        
 
     public function SelectData($id){
         return view('last', compact('id'));
@@ -180,60 +192,113 @@ class DataController extends Controller
     private function createDataFile($datas){
         
         foreach($datas as $data){
-        $str = "Вхідні дані:\r\nКількість варіантів : ".$data->variant."\r\nОб'єм даних : ".$data->amountOfData."\r\nЛіва межа даних : ".$data->min."\r\nПрава межа даних : ".$data->max."\r\n";
 
-        if($data->intOrReal) $str = $str."Дані цілі\r\n";
-        else $str = $str."Дані дійсні\r\n";
-        if($data->normalDistribution) $str = $str."Розподіл рівномірний\r\n";
-        else $str = $str."Розподіл нормальний з відхиленням ".$data->stdDeviation."\r\n";
+            if(App::getLocale()=="ua"){
+                $str = "Вхідні дані:\r\nКількість варіантів : ".$data->variant."\r\nОб'єм даних : ".$data->amountOfData."\r\nЛіва межа даних : ".$data->min."\r\nПрава межа даних : ".$data->max."\r\n";
+
+                if($data->intOrReal) $str = $str."Дані цілі\r\n";
+                else $str = $str."Дані дійсні\r\n";
+                if($data->normalDistribution) $str = $str."Розподіл рівномірний\r\n";
+                else $str = $str."Розподіл нормальний з відхиленням ".$data->stdDeviation."\r\n";
        
-        $str = $str."\r\nСтатистики для обчислення : \r\n";
+                $str = $str."\r\nСтатистики для обчислення : \r\n";
 
-        if($data->frequencies) $str = $str."Частоти\r\n";
-        
-        if($data->relativeFrequencies) $str = $str."Відносні частоти\r\n";
+                if($data->frequencies) $str = $str."Частоти\r\n";
+                
+                if($data->relativeFrequencies) $str = $str."Відносні частоти\r\n";
+                
+                if($data->average) $str = $str."Середнє\r\n";
+                
+                if($data->fashion) $str = $str."Мода\r\n";
+                
+                if($data->median) $str = $str."Медіана\r\n";
+                
+                if($data->dispersion) $str = $str."Дисперсія\r\n";
+                
+                if($data->standardDeviation) $str = $str."Стандартне відхилення\r\n";
+                
+                if($data->coefficientOfVariation) $str = $str."Коефіцієнт варіації\r\n";
+                
+                if($data->decileCoefficient) $str = $str."Децильний коефіцієнт \r\n";
+                
+                if($data->lowerQuartile) $str = $str."Нижній квартиль\r\n";
+                
+                if($data->upperQuartile) $str = $str."Верхній квартиль\r\n";
+                
+                if($data->levelQuantileP) $str = $str."Квантиль рівня ".$data->levelP."\r\n";
+                
+                if($data->confidenceIntervalWithGammaReliability) $str = $str."Довірчий інтервал з надійністю  gamma\r\n";
+                
+                if($data->histogram) $str = $str."Гістограма\r\n";
+                
+                if($data->cumulata) $str = $str."Камулята\r\n";
+
+
+                $sample = explode(",", $data->sample);
+                $str =$str."\r\n";
+                for($i = 1; $i <= $data->variant;$i++){
+                    $array = explode(" ", $sample[$i-1]);
+                    $all = implode (', ',$array);
+
+                    $str = $str."\r\nВаріант ".$i."\r\n";
+                    $str = $str."\r\nZ=c(".$all.")\r\n";
+                        }
+            }
+            else{
+                $str = "Incoming data:\r\nNumber of variant : ".$data->variant."\r\nThe amount of data : ".$data->amountOfData."\r\nLeft data border : ".$data->min."\r\nRight data border : ".$data->max."\r\n";
+
+                if($data->intOrReal) $str = $str."Data integer\r\n";
+                else $str = $str."Data real\r\n";
+                if($data->normalDistribution) $str = $str."The distribution is uniform\r\n";
+                else $str = $str."The distribution is normal with a deviation ".$data->stdDeviation."\r\n";
        
-        if($data->average) $str = $str."Середнє\r\n";
-        
-        if($data->fashion) $str = $str."Мода\r\n";
-       
-        if($data->median) $str = $str."Медіана\r\n";
-        
-        if($data->dispersion) $str = $str."Дисперсія\r\n";
-        
-        if($data->standardDeviation) $str = $str."Стандартне відхилення\r\n";
-        
-        if($data->coefficientOfVariation) $str = $str."Коефіцієнт варіації\r\n";
-        
-        if($data->decileCoefficient) $str = $str."Децильний коефіцієнт \r\n";
-        
-        if($data->lowerQuartile) $str = $str."Нижній квартиль\r\n";
-        
-        if($data->upperQuartile) $str = $str."Верхній квартиль\r\n";
-        
-        if($data->levelQuantileP) $str = $str."Квантиль рівня ".$data->levelP."\r\n";
-        
-        if($data->confidenceIntervalWithGammaReliability) $str = $str."Довірчий інтервал з надійністю  gamma\r\n";
-        
-        if($data->histogram) $str = $str."Гістограма\r\n";
-        
-        if($data->cumulata) $str = $str."Камулята\r\n";
+                $str = $str."\r\nStatistics for calculation : \r\n";
+
+                if($data->frequencies) $str = $str."Frequencies\r\n";
+                
+                if($data->relativeFrequencies) $str = $str."Relative frequencies\r\n";
+                
+                if($data->average) $str = $str."Average\r\n";
+                
+                if($data->fashion) $str = $str."Fashion\r\n";
+                
+                if($data->median) $str = $str."Median\r\n";
+                
+                if($data->dispersion) $str = $str."Dispersion\r\n";
+                
+                if($data->standardDeviation) $str = $str."Standard deviation\r\n";
+                
+                if($data->coefficientOfVariation) $str = $str."Coefficient of variation\r\n";
+                
+                if($data->decileCoefficient) $str = $str."Decile coefficient \r\n";
+                
+                if($data->lowerQuartile) $str = $str."Lower quartile\r\n";
+                
+                if($data->upperQuartile) $str = $str."Upper quartile\r\n";
+                
+                if($data->levelQuantileP) $str = $str."Quantile level ".$data->levelP."\r\n";
+                
+                if($data->confidenceIntervalWithGammaReliability) $str = $str."Confidence interval with gamma reliability\r\n";
+                
+                if($data->histogram) $str = $str."Histogram\r\n";
+                
+                if($data->cumulata) $str = $str."Cumulata\r\n";
 
 
-        $sample = explode(",", $data->sample);
-        $str =$str."\r\n";
-        for($i = 1; $i <= $data->variant;$i++){
-            $array = explode(" ", $sample[$i-1]);
-            $all = implode (', ',$array);
+                $sample = explode(",", $data->sample);
+                $str =$str."\r\n";
+                for($i = 1; $i <= $data->variant;$i++){
+                    $array = explode(" ", $sample[$i-1]);
+                    $all = implode (', ',$array);
 
-            $str = $str."\r\nВаріант ".$i."\r\n";
-            $str = $str."\r\nZ=c(".$all.")\r\n";
+                    $str = $str."\r\nVariant ".$i."\r\n";
+                    $str = $str."\r\nZ=c(".$all.")\r\n";
+                }
+        
+            }
         }
-        }
-        
-        Storage::disk('public')->append('Data.txt',$str);
-
-    }
+Storage::disk('public')->append('Data.txt',$str);
+}
 //Exercise File
     private function createVariantFile($datas){
         foreach($datas as $data){
@@ -243,27 +308,51 @@ class DataController extends Controller
             for($i = 1; $i <= $data->variant;$i++){
                 $array = explode(" ", $sample[$i-1]);
                 $all = implode (', ',$array);
-
-                $str = $str."\r\nВаріант ".$i."\r\n";
-                $str = $str."\r\nZ=c(".$all.")\r\n";
-                $j=0;
-                $str = $str."\r\nЗавдання: \r\n";
-                    if($data->frequencies) $str = $str.++$j.") Знайти частоти\r\n";
-                    if($data->relativeFrequencies) $str = $str.++$j.") Знайти відносні частоти\r\n";       
-                    if($data->average) $str = $str.++$j.") Знайти середнє\r\n";        
-                    if($data->fashion) $str = $str.++$j."Знвйти моду\r\n";       
-                    if($data->median) $str = $str.++$j.") Знайти медіану\r\n";        
-                    if($data->dispersion) $str = $str.++$j.") Знайти дисперсію\r\n";        
-                    if($data->standardDeviation) $str = $str.++$j.") Знайти стандартне відхилення\r\n";        
-                    if($data->coefficientOfVariation) $str = $str.++$j.") Знайти коефіцієнт варіації\r\n";        
-                    if($data->decileCoefficient) $str = $str.++$j.") Знайти децильний коефіцієнт \r\n";        
-                    if($data->lowerQuartile) $str = $str.++$j.") Знайти нижній квартиль\r\n";        
-                    if($data->upperQuartile) $str = $str.++$j.") Знайти верхній квартиль\r\n";        
-                    if($data->levelQuantileP) $str = $str.++$j.") Знайти квантиль рівня ".$data->levelP."\r\n";        
-                    if($data->confidenceIntervalWithGammaReliability) $str = $str.++$j.") Знайти довірчий інтервал з надійністю  gamma\r\n";        
-                    if($data->histogram) $str = $str.++$j.") Побудувати гістограму\r\n";        
-                    if($data->cumulata) $str = $str.++$j.") Побудувати камуляту\r\n";
-                    $str = $str."\n";
+                if(App::getLocale()=="ua"){
+                    $str = $str."\r\nВаріант ".$i."\r\n";
+                    $str = $str."\r\nZ=c(".$all.")\r\n";
+                    $j=0;
+                    $str = $str."\r\nЗавдання: \r\n";
+                        if($data->frequencies) $str = $str.++$j.") Знайти частоти\r\n";
+                        if($data->relativeFrequencies) $str = $str.++$j.") Знайти відносні частоти\r\n";       
+                        if($data->average) $str = $str.++$j.") Знайти середнє\r\n";        
+                        if($data->fashion) $str = $str.++$j."Знaйти моду\r\n";       
+                        if($data->median) $str = $str.++$j.") Знайти медіану\r\n";        
+                        if($data->dispersion) $str = $str.++$j.") Знайти дисперсію\r\n";        
+                        if($data->standardDeviation) $str = $str.++$j.") Знайти стандартне відхилення\r\n";        
+                        if($data->coefficientOfVariation) $str = $str.++$j.") Знайти коефіцієнт варіації\r\n";        
+                        if($data->decileCoefficient) $str = $str.++$j.") Знайти децильний коефіцієнт \r\n";        
+                        if($data->lowerQuartile) $str = $str.++$j.") Знайти нижній квартиль\r\n";        
+                        if($data->upperQuartile) $str = $str.++$j.") Знайти верхній квартиль\r\n";        
+                        if($data->levelQuantileP) $str = $str.++$j.") Знайти квантиль рівня ".$data->levelP."\r\n";        
+                        if($data->confidenceIntervalWithGammaReliability) $str = $str.++$j.") Знайти довірчий інтервал з надійністю  gamma\r\n";        
+                        if($data->histogram) $str = $str.++$j.") Побудувати гістограму\r\n";        
+                        if($data->cumulata) $str = $str.++$j.") Побудувати камуляту\r\n";
+                        $str = $str."\n";
+                }
+                else{
+                    $str = $str."\r\n Variant ".$i."\r\n";
+                    $str = $str."\r\n Z=c(".$all.")\r\n";
+                    $j=0;
+                    $str = $str."\r\n Task: \r\n";
+                        if($data->frequencies) $str = $str.++$j.") Find frequencies\r\n";
+                        if($data->relativeFrequencies) $str = $str.++$j.") Find the relative frequencies\r\n";       
+                        if($data->average) $str = $str.++$j.") Find the average\r\n";        
+                        if($data->fashion) $str = $str.++$j.") Find fashion\r\n";       
+                        if($data->median) $str = $str.++$j.") Find the median\r\n";        
+                        if($data->dispersion) $str = $str.++$j.") Find the variance\r\n";        
+                        if($data->standardDeviation) $str = $str.++$j.") Find the standard deviation\r\n";        
+                        if($data->coefficientOfVariation) $str = $str.++$j.") Find the coefficient of variation\r\n";        
+                        if($data->decileCoefficient) $str = $str.++$j.") Find the decile coefficient\r\n";        
+                        if($data->lowerQuartile) $str = $str.++$j.") Find the lower quartile\r\n";        
+                        if($data->upperQuartile) $str = $str.++$j.") Find the upper quartile\r\n";        
+                        if($data->levelQuantileP) $str = $str.++$j.") Find the quantile level ".$data->levelP."\r\n";        
+                        if($data->confidenceIntervalWithGammaReliability) $str = $str.++$j.") Find the confidence interval with gamma reliability\r\n";        
+                        if($data->histogram) $str = $str.++$j.") Build a histogram\r\n";        
+                        if($data->cumulata) $str = $str.++$j.") Build a cumulative\r\n";
+                        $str = $str."\n";
+                }
+               
             
             }
         }
@@ -272,16 +361,17 @@ class DataController extends Controller
     }
 //Answer File
     private function createVidpovidiFile($datas){
+        
         foreach($datas as $data){
             $str='';
             $sample = explode(",", $data->sample);
                 for($i = 1; $i <= $data->variant;$i++){
                     $array = explode(" ", $sample[$i-1]);
                     $all = implode (', ',$array);
-
-                    $str = $str."\r\nВаріант ".$i."\r\n";
-                    $str = $str."\r\nZ=c(".$all.")\r\n";
-                    $j=0;
+                    if(App::getLocale()=="ua"){
+                        $str = $str."\r\nВаріант ".$i."\r\n";
+                        $str = $str."\r\nZ=c(".$all.")\r\n";
+                        $j=0;
                         $str = $str."\r\nВсі значення: ".$this::all($array)."\r\n";
                         if($data->frequencies) $str = $str."Частоти: ".$this::frequencies($array)."\r\n";
                         if($data->relativeFrequencies) $str = $str."Відносні частоти: ".$this::relativeFrequencies($array)."\r\n";       
@@ -299,6 +389,30 @@ class DataController extends Controller
                         // if($data->histogram) $$str = $str."Побудувати гістограму\r\n";        
                         // if($data->cumulata) $str = $str."Побудувати камуляту\r\n";
                         $str = $str."\n";
+                    }
+                    else{
+                        $str = $str."\r\Variant ".$i."\r\n";
+                        $str = $str."\r\nZ=c(".$all.")\r\n";
+                        $j=0;
+                        $str = $str."\r\nAll values: ".$this::all($array)."\r\n";
+                        if($data->frequencies) $str = $str."Frequencies: ".$this::frequencies($array)."\r\n";
+                        if($data->relativeFrequencies) $str = $str."Relative frequencies: ".$this::relativeFrequencies($array)."\r\n";       
+                        if($data->average) $str = $str."Average: ".$this::average($array)."\r\n";    
+                        if($data->fashion) $str = $str."Fashion: ".$this::fashion($array)."\r\n";
+                        if($data->median) $str = $str."Median: ".$this::median($array)."\r\n";        
+                        if($data->dispersion) $str = $str."Dispersion: ".$this::dispersion($array)."\r\n";        
+                        if($data->standardDeviation) $str = $str."Standard deviation: ".$this::standardDeviation($array)."\r\n";        
+                        if($data->coefficientOfVariation) $str = $str."Coefficient of variation: ".$this::coefficientOfVariation($array)."\r\n";        
+                        if($data->decileCoefficient) $str = $str."Decile coefficient: ".$this::decileCoefficient($array)."\r\n";       
+                        if($data->lowerQuartile) $str = $str."Lower quartile: ".$this::lowerQuartile($array)."\r\n";        
+                        if($data->upperQuartile) $str = $str."Upper quartile: ".$this::upperQuartile($array)."\r\n";        
+                        // if($data->levelQuantileP) $str = $str."Level quantile ".$data->levelP.": ".$this::levelQuantileP($array)."\r\n";       
+                        // if($data->confidenceIntervalWithGammaReliability) $str = $str."Confidence interval with Gamma reliability: ".$this::confidenceIntervalWithGammaReliability($array)."\r\n";        
+                        // if($data->histogram) $$str = $str."Build histogram\r\n";        
+                        // if($data->cumulata) $str = $str."Build cumulata\r\n";
+                        $str = $str."\n";
+                    }
+                    
                 
                 }
             }

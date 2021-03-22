@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\Controller;
+
 /* 
 
 |--------------------------------------------------------------------------
@@ -14,6 +16,9 @@ use App\Http\Controllers\DataController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['setLocale'])->group(function(){
+    Route::get('/home/{locale}',[Controller::class,'Locale'])->name('locale');
+
 
 Route::get('/', function(){
     return view('nonreg');
@@ -51,3 +56,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/last/{id}/download-data',
 Route::middleware(['auth:sanctum', 'verified'])->get('/home', function () {
     return view('welcome');
 })->name('home');
+});
+
+

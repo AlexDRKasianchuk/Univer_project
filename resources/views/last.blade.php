@@ -196,6 +196,9 @@
         
     }
 }
+.lang{
+            margin-right: 40px;
+        }
     </style>
 </head>
 <body>
@@ -226,7 +229,11 @@
                                     <a class="nav-link" href="{{ url('/history') }}">{{__('public.history')}}</a>
                                 </li>
                             </ul>
+                            <div class="lang">
+                                <a href="{{ route('locale','ua')}}"><img src="img/ua.png" alt="ua"></a>
 
+                                <a href="{{ route('locale','en')}}"><img src="img/en.png" alt="en"></a>
+                            </div>
                             <div class="drop">
                                 <span class="dropbtn">{{ Auth::user()->name }}</span>
                                 <div class="drop-content">

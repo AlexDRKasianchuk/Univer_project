@@ -46,6 +46,7 @@
     'confidenceIntervalWithGammaReliability'=>'Довірчий інтервал з надійністю  gamma',
     'histogram'=>'Гістограма',
     'cumulata'=>'Кумулята',
+    'find' => 'Знайти',
 
     //last 
      'download' => 'Скачати',

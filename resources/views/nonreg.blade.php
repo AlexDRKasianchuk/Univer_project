@@ -24,8 +24,8 @@
         }
 
         h1 {
-            
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
 
         .reg {
@@ -33,8 +33,8 @@
             color: white;
             padding: 2%;
             text-align: center;
-            
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             border-radius: 40px;
             -webkit-box-shadow: 0px 0px 30px -5px rgba(255, 255, 255, 1);
             -moz-box-shadow: 0px 0px 30px -5px rgba(255, 255, 255, 1);
@@ -49,14 +49,14 @@
         .btn {
             font-size: 150%;
             margin: 10px;
-            border-radius:12px;
+            border-radius: 12px;
         }
 
         .pln {
             padding: 1%;
         }
 
-        img {
+        .gerb {
             display: block;
             max-width: 20%;
             height: auto;
@@ -64,21 +64,44 @@
 
         }
 
+        .lang {
+            position: fixed;
+            display: flex;
+            justify-content:left;
+            top: 10px;
+            right: 50px;
+        }
+        .flag{
+            padding-right: 100px;
+            width:25px;
+            height:25px;
+        }
+
     </style>
 </head>
 
 <body>
+    <div class="lang">
+        <div class="flag"> <a href="{{ route('locale','ua')}}"><img src="img/ua64.png" alt="ua"></a></div>
+        <div class="flag"> <a href="{{ route('locale','en')}}"><img src="img/en64.png" alt="en"></a></div>
+
+    </div>
     <div class="container-fluid">
+
         <div class="row align-items-center" id="mainrow">
             <div class="col">
                 <div class="container">
+
                     <div class="row">
                         <div class="col align-self-center">
-                            <p class="display-4 text-light text-uppercase text-start align-middle">{{__('public.text2')}}</p>
+                            <p class="display-4 text-light text-uppercase text-start align-middle">
+                                {{__('public.text2')}}</p>
                         </div>
+
                         <div class="col reg">
                             <div class="pln">
                                 <h5 class="fs-2 text-wrap">{{__('public.text1')}}</h5>
+
                                 <div class="btn">
                                     <a href="/login"><button type="button"
                                             class="btn btn-secondary">{{__('public.login')}}</button></a>
@@ -86,8 +109,9 @@
                                             class="btn btn-secondary">{{__('public.registration')}}</button></a>
                                 </div>
                             </div>
+
                             <div>
-                                <img src="img/gerb.png" alt="gerb VNU">
+                                <img  class="gerb" src="img/gerb.png" alt="gerb VNU">
                             </div>
 
                         </div>
