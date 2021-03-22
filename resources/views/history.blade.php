@@ -322,7 +322,7 @@
 
                                     <div class="d-flex flex-row justify-content-between">
                                         <div style="display: flex;align-items: center;">
-                                            {{__('public.variant')}}: {{$data -> variant}}
+                                            {{__('public.variant1')}}: {{$data -> variant}}
                                             ,
                                             {{__('public.amountOfData')}}: {{$data -> amountOfData}} ,
                                             {{__('public.min')}}: {{$data -> min}} ,
@@ -341,7 +341,7 @@
                                         <div class="d-flex flex-row">
                                             <div>
                                                 <a href="{{route('selectData',$data->id)}}"><button
-                                                        class="btn btn-info">{{__('public.create')}}</button></a>
+                                                        class="btn btn-success">{{__('public.create')}}</button></a>
                                             </div>
                                             <div>
                                                 <a href="{{route('delete',$data->id)}}"><button

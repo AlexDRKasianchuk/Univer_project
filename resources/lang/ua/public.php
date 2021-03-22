@@ -79,13 +79,13 @@
         'profile_SRC' => 'Показати коди відновлення',
         'profile_disable' => 'Вимкнути',
 
-        'pi' => 'Profile Information',
+        'pi' => 'Інформація про профіль',
         'profile_update' => 'Оновіть дані профілю свого облікового запису та електронну адресу.',
         'profile_select' => 'Виберіть нове фото',
         'profile_remove' => 'Видалити фото',
         'profile_saved' => 'Збережено.',
         'profile_save' => 'Зберегти',
-        'profile_name' => "Ім'я",
+        'profile_name' => "Ім`я",
         'profile_email' => 'Електронна пошта',
 
         'profile_CP' => 'Поточний пароль',
