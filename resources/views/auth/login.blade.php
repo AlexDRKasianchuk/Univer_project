@@ -20,7 +20,7 @@
         }
 
         body {
-
+            color: white;
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             background: rgb(0, 0, 0);
             background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(139, 43, 48, 1) 100%);

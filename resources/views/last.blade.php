@@ -258,12 +258,38 @@
         </div>
 @endif
 <div class="content">
-            <div class="section">
-    <a href="{{route('download-variant',$id)}}"><button class="btn btn-danger">{{__('public.variant')}}</button></a>
-    <a href="{{route('download-vidpovidi',$id)}}"><button class="btn btn-danger">{{__('public.vidpovidi')}}</button></a>
-    <a href="{{route('download-data',$id)}}"><button class="btn btn-danger">{{__('public.data')}}</button></a>
-    </div>
-    </div>
+			<div class="section">
+					<div class="row" style="margin-top: 90px">
+					<div class="col">
+						<div class="card text-dark text-center ">
+						 <img src="img/text.png" class="card-img-top" alt="...">
+							<div class=" card-body ">
+								<a href="{{route('download-variant',$id)}}"><button class="btn btn-danger">{{__('public.variant')}}</button></a>
+							</div>
+						</div>
+						</div>
+						<div class="col">
+						<div class=" card text-dark text-center">
+							<div class="card-body">
+							 <img src="img/text.png"class="card-img-top" alt="...">
+                             <div class=" card-body ">
+								<a href="{{route('download-vidpovidi',$id)}}"><button class="btn btn-danger">{{__('public.vidpovidi')}}</button></a>
+                                </div>
+							</div>
+						</div>
+						</div>
+						<div class="col">
+						<div class="card text-dark text-center">
+						 <img src="img/text.png" class="card-img-top" alt="...">
+							<div class="card-body">
+								<a href="{{route('download-data',$id)}}"><button class="btn btn-danger">{{__('public.data')}}</button></a>
+							</div>
+						</div>
+						</div>
+					</div>
+			</div>
+		</div>
+
 
     <footer class="container-fluid pdb">
             <div class="section">

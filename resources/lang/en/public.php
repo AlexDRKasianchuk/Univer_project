@@ -32,12 +32,16 @@
         // Редагування сторінки
     //create
     'createNew' => 'Create new Data',
-    'variant' => 'Number of options',
+    'variant1' => 'Number of options',
     'amountOfData' => "Sample size",
     'min'=>'Left limit',
     'max'=>'Right limit',
-    'intOrReal'=>'Data is int / valid',
-    'normalDistribution'=>'The distribution is uniform / normal',
+    'dataInt'=>'Data is int',
+    'dataReal'=>'Data is real',
+    
+    'normalDistribution'=>'The distribution is normal',
+    'uniformDis'=>'The distribution is uniform ',
+    
     'frequencies'=>'Frequencies',
     'relativeFrequencies'=>'Relative frequencies',
     'average'=>'Average',

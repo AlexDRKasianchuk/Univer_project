@@ -25,12 +25,16 @@
     //create
     'createNew' => 'Створити новий запис',
     'send'=>'Створити',
-    'variant' => 'Кількість варіантів',
+    'variant1' => 'Кількість варіантів',
     'amountOfData' => "Об'єм вибірки",
     'min'=>'Ліва межа',
     'max'=>'Права межа',
-    'intOrReal'=>'Дані цілі/дійсні',
-    'normalDistribution'=>'Розподіл рівномірний / нормальний',
+    'dataInt'=>'Дані цілі',
+    'dataReal'=>'Дані дійсні',
+    
+    'normalDistribution'=>'Розподіл нормальний',
+    'uniformDis'=>'Розподіл рівномірний',
+    
     'frequencies'=>'Частоти',
     'relativeFrequencies'=>'Відносні частоти',
     'average'=>'Середнє',
@@ -47,7 +51,7 @@
     'histogram'=>'Гістограма',
     'cumulata'=>'Кумулята',
     'find' => 'Знайти',
-
+    
     //last 
      'download' => 'Скачати',
      'variant' =>'Скачати завдання',
