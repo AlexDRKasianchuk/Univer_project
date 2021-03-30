@@ -230,9 +230,9 @@
                                 </li>
                             </ul>
                             <div class="lang">
-                                <a href="{{ route('locale','ua')}}"><img src="img/ua.png" alt="ua"></a>
+                                <a href="{{ route('locale','ua')}}"><img src="../img/ua.png" alt="ua"></a>
 
-                                <a href="{{ route('locale','en')}}"><img src="img/en.png" alt="en"></a>
+                                <a href="{{ route('locale','en')}}"><img src="../img/en.png" alt="en"></a>
                             </div>
                             <div class="drop">
                                 <span class="dropbtn">{{ Auth::user()->name }}</span>
@@ -262,7 +262,7 @@
 					<div class="row" style="margin-top: 90px">
 					<div class="col">
 						<div class="card text-dark text-center ">
-						 <img src="img/text.png" class="card-img-top" alt="...">
+						 <img src="../img/text.png" class="card-img-top" alt="...">
 							<div class=" card-body ">
 								<a href="{{route('download-variant',$id)}}"><button class="btn btn-danger">{{__('public.variant')}}</button></a>
 							</div>
@@ -270,17 +270,16 @@
 						</div>
 						<div class="col">
 						<div class=" card text-dark text-center">
-							<div class="card-body">
-							 <img src="img/text.png"class="card-img-top" alt="...">
+							 <img src="../img/text.png"class="card-img-top" alt="...">
                              <div class=" card-body ">
 								<a href="{{route('download-vidpovidi',$id)}}"><button class="btn btn-danger">{{__('public.vidpovidi')}}</button></a>
                                 </div>
-							</div>
+							
 						</div>
 						</div>
 						<div class="col">
 						<div class="card text-dark text-center">
-						 <img src="img/text.png" class="card-img-top" alt="...">
+						 <img src="../img/text.png" class="card-img-top" alt="...">
 							<div class="card-body">
 								<a href="{{route('download-data',$id)}}"><button class="btn btn-danger">{{__('public.data')}}</button></a>
 							</div>

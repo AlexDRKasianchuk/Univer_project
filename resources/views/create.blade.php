@@ -265,7 +265,7 @@
 									</div>
                                     <div class="form-switch d-flex justify-content-center" style="padding:0;">
                                         <div class="d-flex flex-row justify-content-between" style="max-width:1200px;">
-                                       <div >{{__('public.normalDistribution')}}<input type="number" style="width:80px;" name="stdDeviation" value="1" ></div> <div><input type="checkbox" id="normalDistribution" name="normalDistribution" class="form-check-input" style="margin-left:10px; margin-right:10px;"></div> <div>{{__('public.uniformDis')}}</div>   
+                                       <div >{{__('public.normalDistribution')}}<input type="number" style="width:80px;" name="stdDeviation" value="1" min="1" ></div> <div><input type="checkbox" id="normalDistribution" name="normalDistribution" class="form-check-input" style="margin-left:10px; margin-right:10px;"></div> <div>{{__('public.uniformDis')}}</div>   
                                         </div>
 									</div>	
 								</div>
